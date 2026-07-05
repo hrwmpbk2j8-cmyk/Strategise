@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strategise for Personal Bests !</title>
+
+    <!-- Widget/PWA Icon Component: favicon, home-screen widget, and manifest -->
+    <script src="icon-widget.js"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
@@ -134,7 +137,18 @@
 </head>
  
  <body>
- 
+
+    <!-- Header/Branding Icon Component -->
+    <script src="icon-header.js"></script>
+    <script>
+        // Set the login branding icon from the component file
+        document.addEventListener('DOMContentLoaded', function() {
+            var loginIcon = document.getElementById('login-branding-icon');
+            if (loginIcon && window.STRATEGISE_HEADER_ICON) {
+                loginIcon.src = window.STRATEGISE_HEADER_ICON;
+            }
+        });
+    </script>
 
  <div id="resetFlowWrapper" style="display: none; min-height: 100vh; flex-direction: column; align-items: center; justify-content: center; background-color: #ffffff; padding: 40px 20px 20px 20px; gap: 10px;">
 
@@ -169,7 +183,7 @@
 			<div id="signInWrapper" style="display: none; min-height: 100vh; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px 20px 20px; gap: 10px;">
     
     <div class="login-icon-container">
-        <img src="https://i.postimg.cc/Bvfx0Ywz/IMG-1424.png" alt="Strategise Icon" class="login-icon">
+        <img id="login-branding-icon" src="" alt="Strategise Icon" class="login-icon">
     </div>
 	 <div id="status-banner" class="max-w-sm mx-auto mt-2 mb-2"></div>
 
@@ -654,7 +668,7 @@ window.handlePasswordResetSubmit = async function() {
                 {/* Sunlight Glow: Warm Amber/Gold instead of Grey */}
                 <div className="absolute inset-0 bg-amber-200 blur-3xl rounded-full scale-125 opacity-40 animate-pulse"></div>
                 <img 
-                    src="https://i.postimg.cc/Bvfx0Ywz/IMG-1424.png" 
+                    src={window.STRATEGISE_HEADER_ICON} 
                     alt="Personal Bests Icon" 
                     className="relative w-32 h-32 md:w-36 md:h-36 object-contain rounded-full border-2 border-white shadow-lg bg-white"
                     style={{ imageRendering: 'high-quality' }} // Extra boost for sharpness
@@ -868,7 +882,7 @@ window.handlePasswordResetSubmit = async function() {
                 {/* Sunlight Glow: Warm Amber/Gold instead of Grey */}
                 <div className="absolute inset-0 bg-amber-200 blur-3xl rounded-full scale-125 opacity-40 animate-pulse"></div>
                 <img 
-                    src="https://i.postimg.cc/Bvfx0Ywz/IMG-1424.png" 
+                    src={window.STRATEGISE_HEADER_ICON} 
                     alt="Personal Bests Icon" 
                     className="relative w-32 h-32 md:w-36 md:h-36 object-contain rounded-full border-2 border-white shadow-lg bg-white"
                     style={{ imageRendering: 'high-quality' }} // Extra boost for sharpness
